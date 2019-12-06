@@ -47,8 +47,3 @@ chsh -s "$(which zsh)"
 | initial-setting.sh | 初期設定 |
 | install-starship.sh | starshipインストーラー |
 | zsh-setting.sh | zsh設定スクリプト |
-
-
-## ToDo
-
-- Mac OSX support
