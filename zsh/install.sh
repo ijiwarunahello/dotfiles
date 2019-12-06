@@ -1,8 +1,8 @@
 #!/bin/bash
-./initial-setting.sh
-./install-zsh.sh
-./install-libraries.sh
-./install-starship.sh
-./setting-git-config.sh
-./setting-git-completion.sh
-echo -e "\e[1;33mall setting done.\e[m"
+TOOLS="./setup_tools"
+$TOOLS/initial-setting.sh
+$TOOLS/install-libraries.sh
+$TOOLS/install-starship.sh
+$TOOLS/setting-git-config.sh
+$TOOLS/setting-git-completion.sh
+printf '\033[33m%s\033[m' "all setting done."

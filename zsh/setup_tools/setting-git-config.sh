@@ -1,5 +1,5 @@
 #!/bin/bash
-echo -e "\e[1;33msetting git config...\e[m"
+printf '\033[33m%s\033[m\n' "setting git config..."
 # Get arg
 USERNAME=$1
 EMAIL=$2
@@ -13,7 +13,7 @@ function usage() {
     echo $NAME USERNAME EMAIL
 }
 
-# Error
+# already setting username or email
 if [ "$username" == '' ]; then
     if [ "$USERNAME" == '' ]; then
         usage
@@ -29,5 +29,6 @@ if [ "$email" == '' ]; then
     git config --global user.email $EMAIL
 fi
 
+git config --global color.ui auto
 git config --global core.editor vim
 git config --global alias.delete-merged-branch "!f () { git checkout $1; git branch --merged|egrep -v '\*|develop|master'|xargs git branch -d; };f"
