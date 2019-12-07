@@ -41,4 +41,6 @@ function mkcd() {
 	fi
 }
 
-eval "$(starship init zsh)"
+if [ ! "`which starship`" = "" ]; then
+  eval "$(starship init zsh)"
+fi
