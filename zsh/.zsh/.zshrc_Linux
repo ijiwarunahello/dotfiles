@@ -1,0 +1,10 @@
+alias open='gnome-open'
+
+# clipboard
+if type xclip > /dev/null 2>&1; then
+  alias pbcopy='xclip -selection clipboard -in'
+  alias pbpaste='xclip -selection clipboard -out'
+elif type xsel > /dev/null 2>&1; then
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
+fi
