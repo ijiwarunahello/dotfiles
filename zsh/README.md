@@ -6,10 +6,8 @@ This is setup tools for zsh to make it better.
 
 ## Support
 
-| OS | status |
-| :--- | :--- |
-| Ubuntu18.04 for WSL | confirmed |
-| Ubuntu16.04 for WSL | not confirmed |
+- Ubuntu18.04
+- Mac OSX Catalina 10.15
 
 ## What to do with this tool
 
@@ -17,12 +15,20 @@ This is setup tools for zsh to make it better.
 1. 最低限のライブラリインストール
 1. [starship](https://starship.rs/#%F0%9F%8D%AC-features)のインストール、適用
 1. gitの設定
+1. dotfilesのシンボリックリンク作成
+
+## Requirements
+
+| OS | content |
+| :--- | :--- |
+| Mac OSX | `homebrew` |
+| Ubuntu 16.04 | nothing |
 
 ## Preparation
 
-### install zsh
+### Ubuntu 16.04
 
-手動でzshをインストールし、ログインシェルをzshに変更する
+__install zsh and change default shell__
 
 ```sh
 sudo apt install zsh -y
@@ -30,10 +36,24 @@ zsh
 chsh -s "$(which zsh)"
 ```
 
-## Run
+### Mac OSX
+
+__install coreutils__
+
+```sh
+brew install coreutls
+```
+
+## First install
 
 ```sh
 ./install.sh
+```
+
+## Create symlink
+
+```sh
+./symlink.sh
 ```
 
 ## Role for each file
