@@ -19,6 +19,3 @@ alias cp="cp -i"
 alias rm="rm -i"
 alias mkdir="mkdir -p"
 alias ..="c ../"
-
-# windows
-alias open="explorer.exe"
