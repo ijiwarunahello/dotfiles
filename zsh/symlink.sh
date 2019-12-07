@@ -16,7 +16,7 @@ if [ ! -d ~/.zsh ]; then
 fi
 for file in .zsh/.*
 do
-  if [ "`echo $file | grep '.'`" -a "`echo $file | grep '..'`" -a "`echo $file | grep '.git'`" ]; then
+  if [ $file != ".zsh/." -a $file != ".zsh/.." -a $file != ".git" ]; then
     ln -sf $basepath/$file ~/.zsh/
   fi
 done
