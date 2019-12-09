@@ -8,3 +8,25 @@ elif type xsel > /dev/null 2>&1; then
   alias pbcopy='xsel --clipboard --input'
   alias pbpaste='xsel --clipboard --output'
 fi
+
+# ROS setting
+if [ -d "/opt/ros" ]; then
+  rossetiot() {
+    export ROS_MASTER_URI=http://192.168.250.10:11311
+    export ROS_IP=`hostname -I`
+    export ROS_HOSTNAME=$ROS_IP
+  }
+
+  rossetreset() {
+    export ROS_MASTER_URI=http://localhost:11311
+    export ROS_IP=`hostname -I`
+    export ROS_HOSTNAME=$ROS_IP
+  }
+
+  rostop() {
+    cd ~/catkin_ws/src
+  }
+
+  source /opt/ros/kinetic/setup.zsh
+  source ~/catkin_ws/devel/setup.zsh
+fi
