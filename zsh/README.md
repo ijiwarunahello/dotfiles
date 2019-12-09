@@ -30,7 +30,7 @@ This is setup tools for zsh to make it better.
 
 ### Ubuntu 16.04
 
-__install zsh and change default shell__
+#### install zsh and change default shell
 
 ```sh
 sudo apt install zsh -y
@@ -40,7 +40,7 @@ chsh -s "$(which zsh)"
 
 ### Mac OSX
 
-__install coreutils__
+#### install coreutils
 
 ```sh
 brew install coreutls
