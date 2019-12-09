@@ -6,6 +6,7 @@ This is setup tools for zsh to make it better.
 
 ## Support
 
+- Ubuntu16.04
 - Ubuntu18.04
 - Mac OSX Catalina 10.15
 
