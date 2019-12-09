@@ -58,12 +58,19 @@ brew install coreutls
 ./symlink.sh
 ```
 
+## Check 'Run command as a login shell'
+
+<todo: display pic>
+
+because enable `.zprofile`
+
 ## Role for each file
 
 | filename | description |
 | :--- | :--- |
-| .zshrc | zshの設定ファイル |
 | install.sh | インストーラー |
+| symlink.sh | シンボリックリンク作成 |
+| .zshrc | zshの設定ファイル |
 | git-completion-setting.sh | git補完設定 |
 | git-config-setting.sh | git設定 |
 | initial-setting.sh | 初期設定 |
