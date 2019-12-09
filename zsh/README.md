@@ -23,7 +23,8 @@ This is setup tools for zsh to make it better.
 | OS | content |
 | :--- | :--- |
 | Mac OSX | `homebrew` |
-| Ubuntu 16.04 | nothing |
+| Ubuntu 16.04 | - |
+| Ubuntu 18.04 | - |
 
 ## Preparation
 
