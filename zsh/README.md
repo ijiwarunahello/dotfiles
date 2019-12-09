@@ -60,7 +60,7 @@ brew install coreutls
 
 ## Check 'Run command as a login shell'
 
-<todo: display pic>
+![setting_display](https://raw.githubusercontent.com/ijiwarunahello/dotfiles/docs/pics/run_command_as_login_shell.png)
 
 because enable `.zprofile`
 
