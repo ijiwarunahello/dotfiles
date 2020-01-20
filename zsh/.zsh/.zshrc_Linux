@@ -30,3 +30,5 @@ if [ -d "/opt/ros" ]; then
   source /opt/ros/kinetic/setup.zsh
   source ~/catkin_ws/devel/setup.zsh
 fi
+
+export DISPLAY=:0.0
