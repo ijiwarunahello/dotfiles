@@ -30,3 +30,10 @@ if [ -d "/opt/ros" ]; then
   source /opt/ros/kinetic/setup.zsh
   source ~/catkin_ws/devel/setup.zsh
 fi
+
+# pyenv setting
+if [ -d "$HOME/.pyenv" ]; then
+  export PATH="~/.pyenv/bin:$PATH"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
