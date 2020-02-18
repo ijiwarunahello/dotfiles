@@ -46,6 +46,12 @@ chsh -s "$(which zsh)"
 brew install coreutls
 ```
 
+## ZDOTDIR setting
+
+```sh
+ln -sf `pwd`/.zshenv ~/
+```
+
 ## First install
 
 ```sh
