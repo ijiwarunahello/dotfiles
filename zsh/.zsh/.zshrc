@@ -49,3 +49,5 @@ fi
 [ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname`
 [ -f $ZDOTDIR/.zshrc_dircolors ] && . $ZDOTDIR/.zshrc_dircolors
 
+# proxy setting
+source ~/work_space/scripts/proxy.sh
