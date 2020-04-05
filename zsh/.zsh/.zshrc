@@ -41,11 +41,16 @@ function mkcd() {
 	fi
 }
 
+# starship
 if [ ! "`which starship`" = "" ]; then
   eval "$(starship init zsh)"
+fi
+
+# nodebrew
+if [ ! "`which nodebrew`" = "" ]; then
+	export PATH=$HOME/.nodebrew/current/bin:$PATH
 fi
 
 # load .zshrc_*
 [ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname`
 [ -f $ZDOTDIR/.zshrc_dircolors ] && . $ZDOTDIR/.zshrc_dircolors
-
