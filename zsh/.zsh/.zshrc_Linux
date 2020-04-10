@@ -32,3 +32,6 @@ if [ -d "/opt/ros" ]; then
 fi
 
 export DISPLAY=:0.0
+
+# linuxbrew
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
