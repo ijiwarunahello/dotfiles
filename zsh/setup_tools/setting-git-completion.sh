@@ -7,6 +7,5 @@ else
 	wget https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
 	wget https://raw.github.com/git/git/master/contrib/completion/git-completion.zsh
 	mv git-completion.zsh _git
-	source ~/.zshrc
 	rm -f ~/.zcompdump; compinit
 fi
