@@ -1,6 +1,5 @@
 #!/bin/bash
 TOOLS="./setup_tools"
-$TOOLS/initial-setting.sh
 $TOOLS/install-libraries.sh
 $TOOLS/install-starship.sh
 $TOOLS/setting-git-config.sh
