@@ -31,4 +31,10 @@ if [ -d "/opt/ros" ]; then
   source ~/catkin_ws/devel/setup.zsh
 fi
 
+# pyenv setting
+if [ -d "$HOME/.pyenv" ]; then
+  export PATH="$HOME/.pyenv/bin:$PATH"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 export DISPLAY=:0.0
