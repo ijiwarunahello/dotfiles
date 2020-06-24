@@ -1,6 +1,5 @@
 #!/bin/bash
 printf '\033[33m%s\033[m\n' "setting git config..."
-# Get arg
 
 # Get current config
 USERNAME=`git config --global user.name`
