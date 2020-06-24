@@ -35,6 +35,8 @@ fi
 if [ -d "$HOME/.pyenv" ]; then
   export PATH="$HOME/.pyenv/bin:$PATH"
   eval "$(pyenv init -)"
+fi
+if [ -d "$HOME/.pyenv/plugins/pyenv-virtualenv" ]; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
