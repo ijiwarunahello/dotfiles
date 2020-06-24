@@ -61,3 +61,6 @@ if [ -e "$HOME/.config/openbox/lxde-rc.xml" ]; then
   export LXDE_RC_PATH="$HOME/.config/openbox/lxde-rc.xml"
   alias vilxde-rc="vim $LXDE_RC_PATH"
 fi
+
+# Python user path
+export PATH=$PATH:$HOME/.local/bin
