@@ -54,3 +54,6 @@ fi
 # load .zshrc_*
 [ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname`
 [ -f $ZDOTDIR/.zshrc_dircolors ] && . $ZDOTDIR/.zshrc_dircolors
+if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+	. $ZDOTDIR/.zshrc_wsl
+fi
