@@ -27,8 +27,8 @@ if [ -d "/opt/ros" ]; then
     cd ~/catkin_ws/src
   }
 
-  source /opt/ros/kinetic/setup.zsh
   source ~/catkin_ws/devel/setup.zsh
+  source /opt/ros/$ROS_DISTRO/setup.zsh
 fi
 
 # pyenv setting
