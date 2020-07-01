@@ -27,8 +27,44 @@ if [ -d "/opt/ros" ]; then
     cd ~/catkin_ws/src
   }
 
-  source /opt/ros/kinetic/setup.zsh
+  if [ -d "/opt/ros/kinetic" ]; then
+    source /opt/ros/kinetic/setup.zsh
+  elif [ -d "/opt/ros/melodic" ]; then
+    source /opt/ros/melodic/setup.zsh
+  fi
   source ~/catkin_ws/devel/setup.zsh
 fi
 
-export DISPLAY=:0.0
+# pyenv setting
+if [ -d "$HOME/.pyenv" ]; then
+  export PATH="$HOME/.pyenv/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
+if [ -d "$HOME/.pyenv/plugins/pyenv-virtualenv" ]; then
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+# peco setting
+if [ -e "/usr/local/bin/peco" ]; then
+	function peco-select-history() {
+		BUFFER=$(\history -n 1 | tac | peco)
+		CURSOR=$#BUFFER
+		zle clear-screen
+	}
+	zle -N peco-select-history
+	bindkey '^r' peco-select-history
+fi
+
+# cuda
+if [ -d "/usr/local/cuda-10.0" ]; then
+  export PATH=$PATH:/usr/local/cuda-10.0/bin
+fi
+
+# for lubuntu
+if [ -e "$HOME/.config/openbox/lxde-rc.xml" ]; then
+  export LXDE_RC_PATH="$HOME/.config/openbox/lxde-rc.xml"
+  alias vilxde-rc="vim $LXDE_RC_PATH"
+fi
+
+# Python user path
+export PATH=$PATH:$HOME/.local/bin

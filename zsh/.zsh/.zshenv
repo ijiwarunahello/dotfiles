@@ -1,5 +1,3 @@
-export DISPLAY=:0
-
 # share history other terminal
 setopt share_history
 # do not show duplicates
