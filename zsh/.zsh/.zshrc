@@ -54,12 +54,7 @@ fi
 # load .zshrc_*
 [ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname`
 [ -f $ZDOTDIR/.zshrc_dircolors ] && . $ZDOTDIR/.zshrc_dircolors
-<<<<<<< HEAD
-
-# proxy setting
-source ~/work_space/scripts/proxy.sh
-=======
+[ -f $HOME/work_space/scripts/proxy.bash ] && . $ZDOTDIR/.zshrc_proxy
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
 	. $ZDOTDIR/.zshrc_wsl
 fi
->>>>>>> master
