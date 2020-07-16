@@ -73,3 +73,6 @@ fi
 
 # Python user path
 export PATH=$PATH:$HOME/.local/bin
+
+# support command_not_found
+. /etc/zsh_command_not_found
