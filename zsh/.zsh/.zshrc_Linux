@@ -36,7 +36,9 @@ if [ -d "/opt/ros" ]; then
 fi
 
 # linuxbrew
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+if [ -d "/home/linuxbrew/.linuxbrew" ]; then
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
 
 # pyenv setting
 if [ -d "$HOME/.pyenv" ]; then
