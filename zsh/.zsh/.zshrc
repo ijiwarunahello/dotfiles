@@ -51,6 +51,19 @@ if [ ! "`which nodebrew`" = "" ]; then
 	export PATH=$HOME/.nodebrew/current/bin:$PATH
 fi
 
+# pyenv setting
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+if [ -d $HOME/.pyenv/versions/anaconda3-5.3.1 ]; then
+  . $HOME/.pyenv/versions/anaconda3-5.3.1/etc/profile.d/conda.sh
+fi
+if [ -d $HOME/.pyenv/versions/anaconda3-5.1.0 ]; then
+  . $HOME/.pyenv/versions/anaconda3-5.1.0/etc/profile.d/conda.sh
+fi
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
 # load .zshrc_*
 [ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname`
 [ -f $ZDOTDIR/.zshrc_dircolors ] && . $ZDOTDIR/.zshrc_dircolors
