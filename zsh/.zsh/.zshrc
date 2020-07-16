@@ -51,6 +51,12 @@ if [ ! "`which nodebrew`" = "" ]; then
 	export PATH=$HOME/.nodebrew/current/bin:$PATH
 fi
 
+# support command_not_found
+. /etc/zsh_command_not_found
+
 # load .zshrc_*
 [ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname`
 [ -f $ZDOTDIR/.zshrc_dircolors ] && . $ZDOTDIR/.zshrc_dircolors
+if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+	. $ZDOTDIR/.zshrc_wsl
+fi
