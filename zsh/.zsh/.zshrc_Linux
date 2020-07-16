@@ -35,6 +35,11 @@ if [ -d "/opt/ros" ]; then
   source ~/catkin_ws/devel/setup.zsh
 fi
 
+# linuxbrew
+if [ -d "/home/linuxbrew/.linuxbrew" ]; then
+  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
+
 # pyenv setting
 if [ -d "$HOME/.pyenv" ]; then
   export PATH="$HOME/.pyenv/bin:$PATH"
