@@ -76,3 +76,9 @@ export PATH=$PATH:$HOME/.local/bin
 
 # support command_not_found
 . /etc/zsh_command_not_found
+
+# direnv
+if [ ! "`which direnv`" = "" ]; then
+  export EDITOR=vim
+  eval "$(direnv hook zsh)"
+fi
