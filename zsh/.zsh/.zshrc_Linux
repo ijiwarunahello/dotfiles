@@ -27,9 +27,7 @@ if [ -d "/opt/ros" ]; then
     cd ~/catkin_ws/src
   }
 
-  if [ -d "/opt/ros/kinetic" ]; then
-    source /opt/ros/kinetic/setup.zsh
-  elif [ -d "/opt/ros/melodic" ]; then
+  if [ -d "/opt/ros/melodic" ]; then
     source /opt/ros/melodic/setup.zsh
   fi
   source ~/catkin_ws/devel/setup.zsh
