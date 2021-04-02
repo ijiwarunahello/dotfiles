@@ -1,2 +1,4 @@
 alias open="/mnt/c/Windows/explorer.exe"
 alias pbcopy="/mnt/c/windows/system32/clip.exe"
+
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
