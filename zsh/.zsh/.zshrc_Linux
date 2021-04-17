@@ -31,8 +31,13 @@ if [ -d "/opt/ros" ]; then
     source /opt/ros/melodic/setup.zsh
   elif [ -d "/opt/ros/noetic" ]; then
     source /opt/ros/noetic/setup.zsh
+  elif [ -d "/opt/ros/foxy" ]; then
+    source /opt/ros/foxy/setup.zsh
   fi
-  source ~/catkin_ws/devel/setup.zsh
+
+  if [ -d "$HOME/catkin_ws" ]; then
+    source ~/catkin_ws/devel/setup.zsh
+  fi
 fi
 
 # linuxbrew
