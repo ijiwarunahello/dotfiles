@@ -6,29 +6,11 @@ This is setup tools for zsh to make it better.
 
 ## Support
 
-- Ubuntu16.04
-- Ubuntu18.04
-- Mac OSX Catalina 10.15
-
-## What to do with this tool
-
-1. zshのインストール、ログインシェルをzshに変更
-1. 最低限のライブラリインストール
-1. [starship](https://starship.rs/#%F0%9F%8D%AC-features)のインストール、適用
-1. gitの設定
-1. dotfilesのシンボリックリンク作成
-
-## Requirements
-
-| OS | content |
-| :--- | :--- |
-| Mac OSX | `homebrew` |
-| Ubuntu 16.04 | - |
-| Ubuntu 18.04 | - |
+- Ubuntu20.04
 
 ## Preparation
 
-### Ubuntu 16.04
+### Ubuntu 
 
 #### install zsh and change default shell
 
@@ -38,21 +20,26 @@ zsh
 chsh -s "$(which zsh)"
 ```
 
-### Mac OSX
-
-#### install coreutils
-
-```sh
-brew install coreutls
-```
-
 ## First install
 
 ```sh
 ./install.sh
 ```
 
+`install.sh`では以下を実行している。
+
+- 以下ライブラリのインストール
+  - finger
+  - xsel
+  - peco
+  - curl
+  - vim
+- [starship](https://starship.rs)のインストール
+- gitの初期設定（ユーザ名、メールアドレス）
+
 ## Create symlink
+
+`.zsh`ファイルのシンボリックリンクを貼る
 
 ```sh
 ./symlink.sh
@@ -71,8 +58,6 @@ because enable `.zprofile`
 | install.sh | インストーラー |
 | symlink.sh | シンボリックリンク作成 |
 | .zshrc | zshの設定ファイル |
-| git-completion-setting.sh | git補完設定 |
 | git-config-setting.sh | git設定 |
 | initial-setting.sh | 初期設定 |
 | install-starship.sh | starshipインストーラー |
-| zsh-setting.sh | zsh設定スクリプト |
