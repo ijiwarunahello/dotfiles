@@ -30,7 +30,7 @@ if [ "$CORE_EDITOR" == '' ]; then
 fi
 printf '\033[33m%s\033[m\n' "alias"
 if [ "$DELETE_MERGED_BRANCH" == '' ]; then
-	git config --global alias.delete-merged-branch "!f () { git checkout $1; git branch --merged|egrep -v '\*|develop|master'|xargs git branch -d; };f"
+	git config --global alias.delete-merged-branch "!f () { git checkout $1; git branch --merged|egrep -v '\*|develop|master|main'|xargs git branch -d; };f"
 fi
 
 printf '\033[33m%s\033[m\n' "git pull config"
