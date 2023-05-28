@@ -2,3 +2,4 @@ alias open="/mnt/c/Windows/explorer.exe"
 alias pbcopy="/mnt/c/windows/system32/clip.exe"
 
 export DISPLAY=:0.0
+export LIBGL_ALWAYS_SOFTWARE=1
