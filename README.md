@@ -1,9 +1,11 @@
 # dotfiles
 
-My dotfiles
+dotfilesの設定ファイル集
 
-## Information
+このリポジトリには、開発環境をより快適にするための設定ファイルが含まれています。
 
-| dir | description |
+## ディレクトリ構成
+
+| ディレクトリ | 説明 |
 | :-- | :-- |
-| zsh | Make your zsh comfortable |
+| zsh | zshをより使いやすく、効率的な設定にカスタマイズ |

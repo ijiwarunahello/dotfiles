@@ -6,7 +6,8 @@ This is setup tools for zsh to make it better.
 
 ## Support
 
-- Ubuntu20.04
+- Ubuntu 20.04
+- macOS
 
 ## Preparation
 
