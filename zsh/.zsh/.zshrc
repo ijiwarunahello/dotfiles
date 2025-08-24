@@ -61,8 +61,12 @@ fi
 if [ -d $HOME/.pyenv/versions/anaconda3-5.1.0 ]; then
   . $HOME/.pyenv/versions/anaconda3-5.1.0/etc/profile.d/conda.sh
 fi
+
 export PYENV_ROOT="$HOME/.pyenv"
+if [[ -d $PYENV_ROOT/bin ]]; then
 export PATH="$PYENV_ROOT/bin:$PATH"
+fi
+eval "$(pyenv init - zsh)"
 
 # load .zshrc_*
 [ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname`
