@@ -9,6 +9,7 @@ macOS / Linux 向けの dotfiles。GNU Stow で `$HOME` に symlink を張って
 | `zsh/` | zsh 設定 (homebrew + starship + 最低限の UX) |
 | `vim/` | vim 設定 (最小構成) |
 | `claude/` | Claude Code 設定 (`~/.claude/`) — global `CLAUDE.md` と skills も含む |
+| `codex/` | Codex 設定 (`~/.codex/`) — global `AGENTS.md` と Claude 由来 skills への導線 |
 | `setup/` | ライブラリ / starship / git 設定の bootstrap |
 
 ## セットアップ
@@ -22,8 +23,14 @@ cd ~/dotfiles
 `install.sh` は:
 
 1. `setup/install-libraries.sh` で OS 別に必要パッケージ (stow など) を導入
-2. `stow -t ~ zsh vim claude` で symlink を展開
+2. `stow -t ~ zsh vim claude codex` で symlink を展開
 3. starship と git config を初期化
+
+## AI エージェント設定
+
+- `claude/.claude/CLAUDE.md` を共通ルールの正本として扱う
+- `codex/.codex/AGENTS.md` は Codex の正規入口に合わせたミラー
+- `codex/.codex/skills/*` は Claude 側 skills を参照する導線で、実体の編集元は `claude/.claude/skills/*/SKILL.md`
 
 ## 対応環境
 
