@@ -1,3 +1,5 @@
+export PATH="$HOME/.local/bin:$PATH"
+
 setopt share_history
 setopt histignorealldups
 setopt auto_cd
