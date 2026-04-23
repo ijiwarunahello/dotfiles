@@ -28,8 +28,8 @@ cd ~/dotfiles
 
 ## AI エージェント設定
 
-- `claude/.claude/CLAUDE.md` を共通ルールの正本として扱う
-- `codex/.codex/AGENTS.md` は Codex の正規入口に合わせたミラー
+- `codex/.codex/AGENTS.md` を共通ルールの正本として扱う
+- `claude/.claude/CLAUDE.md` は `AGENTS.md` への参照だけを持つ
 - `codex/.codex/skills/*` は Claude 側 skills を参照する導線で、実体の編集元は `claude/.claude/skills/*/SKILL.md`
 
 ## 対応環境

@@ -1,6 +1,6 @@
 # Global Guidance For Codex
 
-Canonical source: `claude/.claude/CLAUDE.md` in this dotfiles repo. Keep shared guidance aligned there first, then mirror any Codex-specific wording updates here.
+Canonical source for shared agent guidance in this dotfiles repo. Claude should reference this file instead of duplicating the content.
 
 ## Design System: Swiss Style (International Typographic Style)
 
