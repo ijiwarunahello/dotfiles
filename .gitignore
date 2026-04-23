@@ -20,5 +20,6 @@ claude/.claude/ide/
 claude/.claude/downloads/
 claude/.claude/*.bak
 claude/.claude/*.bak.*
+.memsearch/
 
 .DS_Store
