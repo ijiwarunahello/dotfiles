@@ -1,1 +1,0 @@
-../../../../claude/.claude/skills/visionos-dev/SKILL.md
