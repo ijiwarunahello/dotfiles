@@ -9,13 +9,21 @@
     "commit-commands@claude-plugins-official": true,
     "memsearch@memsearch-plugins": true,
     "code-simplifier@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true
+    "skill-creator@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "everything-evenhub@everything-evenhub": true
   },
   "extraKnownMarketplaces": {
     "memsearch-plugins": {
       "source": {
         "source": "github",
         "repo": "zilliztech/memsearch"
+      }
+    },
+    "everything-evenhub": {
+      "source": {
+        "source": "github",
+        "repo": "even-realities/everything-evenhub"
       }
     }
   }
