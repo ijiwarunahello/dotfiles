@@ -40,3 +40,4 @@ All PR descriptions must use these five sections, in this order, and stay concis
 - **Notes**: follow-ups, caveats, known limitations, or out-of-scope items
 
 Keep each section short. Omit filler. Do not add extra sections.
+Write PR descriptions in Japanese unless the user explicitly asks for another language.
