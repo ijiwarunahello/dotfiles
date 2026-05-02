@@ -41,3 +41,12 @@ All PR descriptions must use these five sections, in this order, and stay concis
 
 Keep each section short. Omit filler. Do not add extra sections.
 Write PR descriptions in Japanese unless the user explicitly asks for another language.
+
+## Agent Workspace Operation
+
+- Do not create or rely on agent-specific workspaces such as `~/Workspaces/ws_codex` or `~/Workspaces/ws_claude`.
+- Treat `~/Workspaces/src` as the trusted workspace root.
+- Do normal project work inside `~/Workspaces/src/github.com/<owner>/<repo>` or a worktree managed from that repository.
+- Start new project planning and initial research from the inbox repository at `~/Workspaces/src/github.com/ijiwarunahello/workspace-inbox`, unless `AGENT_INBOX_REPO` points to another inbox repository under the trusted workspace root.
+- When planning turns into implementation, move into the target project repository or worktree before editing files or running project commands.
+- If work must start outside `~/Workspaces/src`, ask the user before proceeding.

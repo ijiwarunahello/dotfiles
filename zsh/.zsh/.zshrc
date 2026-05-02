@@ -27,13 +27,126 @@ _dotfiles_require() {
   fi
 }
 
-g() {
+_dotfiles_workspace_root() {
+  printf '%s\n' "${WORKSPACES_SRC:-$HOME/Workspaces/src}"
+}
+
+_dotfiles_agent_inbox_repo() {
+  printf '%s\n' "${AGENT_INBOX_REPO:-$(_dotfiles_workspace_root)/github.com/ijiwarunahello/workspace-inbox}"
+}
+
+_dotfiles_agent_cwd_allowed() {
+  local root cwd
+  root="$(_dotfiles_workspace_root)"
+  root="${root:A}"
+  cwd="${PWD:A}"
+
+  case "$cwd" in
+    "$root"|"$root"/*) return 0 ;;
+  esac
+
+  printf '%s\n' "agent cwd is outside trusted workspace root: $cwd" >&2
+  printf '%s\n' "trusted workspace root: $root" >&2
+  return 1
+}
+
+_dotfiles_run_agent() {
+  if [ "$#" -eq 0 ]; then
+    printf '%s\n' "usage: _dotfiles_run_agent <codex|claude|app|codex-app> [args...]" >&2
+    return 2
+  fi
+
+  local agent
+  agent="$1"
+  shift
+
+  case "$agent" in
+    codex|claude|app|codex-app) ;;
+    *)
+      printf '%s\n' "usage: _dotfiles_run_agent <codex|claude|app|codex-app> [args...]" >&2
+      return 2
+      ;;
+  esac
+
+  case "$agent" in
+    app|codex-app)
+      _dotfiles_require codex || return
+      ;;
+    *)
+      _dotfiles_require "$agent" || return
+      ;;
+  esac
+  _dotfiles_agent_cwd_allowed || return
+
+  case "$agent" in
+    app|codex-app) command codex app "$@" ;;
+    *) command "$agent" "$@" ;;
+  esac
+}
+
+_dotfiles_pick_repo() {
   _dotfiles_require ghq || return
   _dotfiles_require fzf || return
 
   local repo
   repo="$(ghq list -p | fzf --prompt='repo> ')" || return
+  [ -n "$repo" ] || return 1
+  printf '%s\n' "$repo"
+}
+
+g() {
+  local repo
+  repo="$(_dotfiles_pick_repo)" || return
   [ -n "$repo" ] && cd "$repo"
+}
+
+c() {
+  _dotfiles_run_agent codex "$@"
+}
+
+cx() {
+  _dotfiles_run_agent codex "$@"
+}
+
+ca() {
+  _dotfiles_run_agent app "$@"
+}
+
+cl() {
+  _dotfiles_run_agent claude "$@"
+}
+
+ai() {
+  if [ "$#" -eq 0 ]; then
+    printf '%s\n' "usage: ai <codex|claude|app|codex-app> [args...]" >&2
+    return 2
+  fi
+
+  local agent repo
+  agent="$1"
+  shift
+  repo="$(_dotfiles_pick_repo)" || return
+  cd "$repo" && _dotfiles_run_agent "$agent" "$@"
+}
+
+aip() {
+  if [ "$#" -eq 0 ]; then
+    printf '%s\n' "usage: aip <codex|claude|app|codex-app> [args...]" >&2
+    return 2
+  fi
+
+  local agent repo
+  agent="$1"
+  shift
+  repo="$(_dotfiles_agent_inbox_repo)"
+
+  if [ ! -d "$repo" ]; then
+    printf '%s\n' "agent inbox repo does not exist: $repo" >&2
+    printf '%s\n' "create it under ~/Workspaces/src or set AGENT_INBOX_REPO." >&2
+    return 1
+  fi
+
+  cd "$repo" && _dotfiles_run_agent "$agent" "$@"
 }
 
 gw() {
