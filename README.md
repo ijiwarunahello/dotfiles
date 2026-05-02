@@ -11,7 +11,7 @@ macOS / Linux 向けの dotfiles。GNU Stow で `$HOME` に symlink を張って
 | `claude/` | Claude Code 設定 (`~/.claude/`) — global `CLAUDE.md` と skills も含む |
 | `codex/` | Codex 設定 (`~/.codex/`) — global `AGENTS.md` と Claude 由来 skills への導線 |
 | `agents/` | 共通 agent skills (`~/.agents/skills/`) — Codex の user-scope discovery 用 |
-| `setup/` | ライブラリ / starship / git 設定の bootstrap |
+| `setup/` | ライブラリ / starship の bootstrap |
 
 ## セットアップ
 
@@ -26,7 +26,29 @@ cd ~/dotfiles
 1. `setup/install-libraries.sh` で OS 別に必要パッケージ (stow など) を導入
 2. `mkdir -p ~/.agents/skills` で Codex user-scope skill 用ディレクトリを用意
 3. `stow -t ~ zsh vim claude codex` と `stow -R -t ~ agents` で symlink を展開し、agent skill の削除済みリンクも掃除
-4. starship と git config を初期化
+4. starship を初期化
+5. GitHub CLI / Worktrunk の次アクションを表示
+
+GitHub 認証と Git credential helper は GitHub CLI に任せる。
+
+```sh
+gh auth login
+gh auth setup-git
+```
+
+Worktrunk で `wt switch` 後に shell のカレントディレクトリも移動したい場合は、初回だけ shell integration を入れる。
+
+```sh
+wt config shell install
+```
+
+## CLI ワークフロー
+
+- `ghq get owner/repo` で repository を揃った場所に clone する
+- `g` で `ghq list -p` から `fzf` 選択して repository に移動する
+- `z` / `zi` で `zoxide` の履歴からよく使う場所に移動する
+- `gw` で Worktrunk の worktree picker / switch を使う
+- `gwc <branch>` で Worktrunk の worktree を作って移動する
 
 ## AI エージェント設定
 
