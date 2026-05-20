@@ -29,6 +29,11 @@ Apply the following principles to all application development, including TUI, we
 - Remove redundant animations, shadows, and gradients.
 - For data visualization, prefer abstract forms such as minimalist bars or refined line charts over colorful or complex graphs.
 
+## Communication Language
+
+- Respond to the user in Japanese unless the user explicitly asks for another language or writes their request in another language other than Japanese.
+- This rule applies to chat replies, status updates, and inline narration. PR descriptions follow the more specific rule in the Pull Request Description Template section.
+
 ## Pull Request Description Template
 
 All PR descriptions must use these five sections, in this order, and stay concise:

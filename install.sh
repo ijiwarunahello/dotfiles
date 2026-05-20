@@ -7,7 +7,7 @@ ROOT="$(cd "$(dirname "$0")" && pwd)"
 
 cd "$ROOT"
 mkdir -p "$HOME/.agents/skills"
-stow -v -t "$HOME" zsh vim claude codex
+stow -v -t "$HOME" zsh vim claude codex workspace-inbox
 stow -R -v -t "$HOME" agents
 
 "$ROOT/setup/install-starship.sh"
