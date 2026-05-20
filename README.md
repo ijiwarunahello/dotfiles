@@ -11,6 +11,7 @@ macOS / Linux 向けの dotfiles。GNU Stow で `$HOME` に symlink を張って
 | `claude/` | Claude Code 設定 (`~/.claude/`) — global `CLAUDE.md` と skills も含む |
 | `codex/` | Codex 設定 (`~/.codex/`) — global `AGENTS.md` と Claude 由来 skills への導線 |
 | `agents/` | 共通 agent skills (`~/.agents/skills/`) — Codex の user-scope discovery 用 |
+| `workspace-inbox/` | agent inbox repository 用のローカル `AGENTS.md` |
 | `setup/` | ライブラリ / starship の bootstrap |
 
 ## セットアップ
@@ -25,7 +26,7 @@ cd ~/dotfiles
 
 1. `setup/install-libraries.sh` で OS 別に必要パッケージ (stow など) を導入
 2. `mkdir -p ~/.agents/skills` で Codex user-scope skill 用ディレクトリを用意
-3. `stow -t ~ zsh vim claude codex` と `stow -R -t ~ agents` で symlink を展開し、agent skill の削除済みリンクも掃除
+3. `stow -t ~ zsh vim claude codex workspace-inbox` と `stow -R -t ~ agents` で symlink を展開し、agent skill の削除済みリンクも掃除
 4. starship を初期化
 5. GitHub CLI / Worktrunk の次アクションを表示
 
