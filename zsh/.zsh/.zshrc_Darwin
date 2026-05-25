@@ -3,3 +3,7 @@ if [ -x /opt/homebrew/bin/brew ]; then
 elif [ -x /usr/local/bin/brew ]; then
   eval "$(/usr/local/bin/brew shellenv)"
 fi
+
+if [ -x /Applications/Tailscale.app/Contents/MacOS/Tailscale ]; then
+  export PATH="/Applications/Tailscale.app/Contents/MacOS:$PATH"
+fi
