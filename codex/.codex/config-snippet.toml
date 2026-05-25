@@ -1,0 +1,12 @@
+# Append to ~/.codex/config.toml to expose local MCP servers to Codex CLI.
+# After editing the file, restart Codex.
+#
+# Why this is a snippet instead of a stowed config.toml:
+#   ~/.codex/config.toml is rewritten by Codex at runtime (e.g. [projects.*]
+#   trust entries) and would create churn if symlinked into the dotfiles repo.
+
+[mcp_servers.artifact_hub]
+url = "http://127.0.0.1:27183/mcp"
+
+[mcp_servers.fusion360]
+url = "http://127.0.0.1:27182/mcp"
