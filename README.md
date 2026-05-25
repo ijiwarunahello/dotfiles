@@ -61,6 +61,7 @@ wt config shell install
 
 - `codex/.codex/AGENTS.md` を共通ルールの正本として扱う
 - `claude/.claude/CLAUDE.md` は `AGENTS.md` への参照だけを持つ
+- Codex の MCP サーバ設定は `codex/.codex/config-snippet.toml` に置く。初回セットアップ時に `~/.codex/config.toml` へ append すること（`config.toml` 自体は Codex が `[projects.*]` を自動書込するため stow しない）
 - agent 別の `~/Workspaces/ws_codex` / `ws_claude` は作らず、`~/Workspaces/src` 配下の通常 repository / worktree だけで作業する
 - 新規プロジェクトの企画・調査は `~/Workspaces/src/github.com/ijiwarunahello/workspace-inbox` から始める
 - trusted workspace root は `WORKSPACES_SRC=/path/to/src` で上書きできる
