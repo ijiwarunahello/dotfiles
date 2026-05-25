@@ -1,5 +1,8 @@
 {
   "cleanupPeriodDays": 99999,
+  "permissions": {
+    "defaultMode": "auto"
+  },
   "enabledPlugins": {
     "swift-lsp@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
@@ -10,7 +13,9 @@
     "code-simplifier@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "everything-evenhub@everything-evenhub": true
+    "everything-evenhub@everything-evenhub": true,
+    "artifact-hub@artifact-hub": true,
+    "clangd-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "memsearch-plugins": {
@@ -24,10 +29,13 @@
         "source": "github",
         "repo": "even-realities/everything-evenhub"
       }
+    },
+    "artifact-hub": {
+      "source": {
+        "source": "github",
+        "repo": "ijiwarunahello/artifact-hub"
+      }
     }
   },
-  "skipAutoPermissionPrompt": true,
-  "permissions": {
-    "defaultMode": "auto"
-  }
+  "skipAutoPermissionPrompt": true
 }
