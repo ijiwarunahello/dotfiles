@@ -55,3 +55,6 @@ Write PR descriptions in Japanese unless the user explicitly asks for another la
 - Start new project planning and initial research from the inbox repository at `~/Workspaces/src/github.com/ijiwarunahello/workspace-inbox`, unless `AGENT_INBOX_REPO` points to another inbox repository under the trusted workspace root.
 - When planning turns into implementation, move into the target project repository or worktree before editing files or running project commands.
 - If work must start outside `~/Workspaces/src`, ask the user before proceeding.
+
+## Artifact Hub
+See /Users/iri/Workspaces/src/github.com/ijiwarunahello/artifact-hub/clients/codex/AGENTS.md for usage guide.
