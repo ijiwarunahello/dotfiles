@@ -1,7 +1,5 @@
 # Claude Global Guidance
 
-Shared guidance lives in:
+Shared guidance is imported from the canonical source below. Do not duplicate its content here.
 
-`../dotfiles/codex/.codex/AGENTS.md`
-
-Use that file as the canonical source instead of duplicating the content here.
+@/Users/iri/Workspaces/src/github.com/ijiwarunahello/dotfiles/codex/.codex/AGENTS.md
