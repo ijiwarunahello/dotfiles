@@ -56,5 +56,12 @@ Write PR descriptions in Japanese unless the user explicitly asks for another la
 - When planning turns into implementation, move into the target project repository or worktree before editing files or running project commands.
 - If work must start outside `~/Workspaces/src`, ask the user before proceeding.
 
+## Project Naming
+
+- Name new repositories and projects after Perfume (the Japanese band): use song titles, lyrics, or album names as motifs, or wordplay derived from them.
+- When naming, propose 2-3 candidates related to the project's purpose, each with a short explanation of its origin, and let the user choose. Do not finalize a name unilaterally.
+- Use lowercase kebab-case following GitHub conventions (examples: `polyrhythm`, `edge-of-glitter`, `chocolate-disco`).
+- Do not apply this rule to renaming existing repositories, or to branch names and codenames.
+
 ## Artifact Hub
 See /Users/iri/Workspaces/src/github.com/ijiwarunahello/artifact-hub/clients/codex/AGENTS.md for usage guide.
