@@ -19,7 +19,7 @@
 **Files:**
 - Modify: `codex/.codex/AGENTS.md` (「Agent Workspace Operation」セクションの直後、「Artifact Hub」セクションの前)
 
-- [ ] **Step 1: 新セクションを追加する**
+- [x] **Step 1: 新セクションを追加する**
 
 「Agent Workspace Operation」セクションの最終行(`- If work must start outside ~/Workspaces/src, ask the user before proceeding.`)と「## Artifact Hub」の間に、以下をそのまま挿入する:
 
@@ -32,17 +32,17 @@
 - Do not apply this rule to renaming existing repositories, or to branch names and codenames.
 ```
 
-- [ ] **Step 2: 追加結果を目視確認する**
+- [x] **Step 2: 追加結果を目視確認する**
 
 Run: `grep -A 6 "## Project Naming" codex/.codex/AGENTS.md`
 Expected: 上記 4 つの箇条書きがそのまま出力される
 
-- [ ] **Step 3: symlink 経由で反映されていることを確認する**
+- [x] **Step 3: symlink 経由で反映されていることを確認する**
 
 Run: `grep "## Project Naming" ~/.codex/AGENTS.md`
 Expected: `## Project Naming` が 1 行出力される(stow の symlink が生きていれば編集と同時に反映される)
 
-- [ ] **Step 4: コミット**
+- [x] **Step 4: コミット**
 
 ```bash
 git add codex/.codex/AGENTS.md
@@ -56,13 +56,13 @@ Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"
 **Files:**
 - Modify: `docs/superpowers/plans/2026-06-13-perfume-project-naming.md` (完了ステップのチェックを更新してコミット)
 
-- [ ] **Step 1: push する**
+- [x] **Step 1: push する**
 
 ```bash
 git push -u origin feat/perfume-project-naming
 ```
 
-- [ ] **Step 2: PR を作成する**
+- [x] **Step 2: PR を作成する**
 
 PR 説明は日本語・5 セクションテンプレート(Summary / Why / Impact / Test / Notes)に従う:
 
@@ -94,4 +94,4 @@ EOF
 
 Expected: PR の URL が出力される
 
-- [ ] **Step 3: PR URL をユーザーに報告する**
+- [x] **Step 3: PR URL をユーザーに報告する**
