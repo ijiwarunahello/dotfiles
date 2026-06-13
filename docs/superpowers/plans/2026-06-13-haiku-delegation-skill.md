@@ -19,7 +19,7 @@
 **Files:**
 - Create: `claude/.claude/skills/haiku-delegation/SKILL.md`
 
-- [ ] **Step 1: ディレクトリとファイルを作成し、以下の内容をそのまま書き込む**
+- [x] **Step 1: ディレクトリとファイルを作成し、以下の内容をそのまま書き込む**
 
 ファイルパス: `claude/.claude/skills/haiku-delegation/SKILL.md`
 
@@ -116,19 +116,19 @@ description: Use when performing mechanical, fully-specified routine work that a
 - コミットメッセージ・PR 本文・設計文書の作成(思考そのもの)
 ````
 
-- [ ] **Step 2: ファイルが作成され frontmatter が妥当か確認する**
+- [x] **Step 2: ファイルが作成され frontmatter が妥当か確認する**
 
 Run: `head -4 claude/.claude/skills/haiku-delegation/SKILL.md`
 Expected: 1 行目 `---`、2 行目 `name: haiku-delegation`、3 行目 `description: Use when...`、4 行目 `---`
 
-- [ ] **Step 3: stow symlink 経由で展開されていることを確認する**
+- [x] **Step 3: stow symlink 経由で展開されていることを確認する**
 
 Run: `cat ~/.claude/skills/haiku-delegation/SKILL.md | head -2`
 Expected: `---` と `name: haiku-delegation` が出力される(stow が既存の symlink を張っていれば即反映される)
 
 備考: もし `~/.claude/skills/haiku-delegation/` が存在しない場合は、新規ディレクトリのため stow の再実行が必要。その場合は `cd ~/Workspaces/src/github.com/ijiwarunahello/dotfiles && stow -d . -t ~ claude` を実行してから再確認する。
 
-- [ ] **Step 4: コミット**
+- [x] **Step 4: コミット**
 
 ```bash
 git add claude/.claude/skills/haiku-delegation/SKILL.md
@@ -142,7 +142,7 @@ Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
 **Files:**
 - Modify: `docs/superpowers/plans/2026-06-13-haiku-delegation-skill.md`(完了チェックを更新してコミット)
 
-- [ ] **Step 1: プランの完了ステップにチェックを入れてコミットする**
+- [x] **Step 1: プランの完了ステップにチェックを入れてコミットする**
 
 ```bash
 git add docs/superpowers/plans/2026-06-13-haiku-delegation-skill.md
@@ -151,13 +151,13 @@ git commit -m "Mark haiku-delegation plan steps complete
 Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
 ```
 
-- [ ] **Step 2: push する**
+- [x] **Step 2: push する**
 
 ```bash
 git push -u origin feat/haiku-delegation-skill
 ```
 
-- [ ] **Step 3: PR を作成する**
+- [x] **Step 3: PR を作成する**
 
 PR 説明は日本語・5 セクションテンプレート(Summary / Why / Impact / Test / Notes)に従う:
 
@@ -190,4 +190,4 @@ EOF
 
 Expected: PR の URL が出力される
 
-- [ ] **Step 4: PR URL をユーザーに報告する**
+- [x] **Step 4: PR URL をユーザーに報告する**
