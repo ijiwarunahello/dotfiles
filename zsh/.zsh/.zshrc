@@ -117,27 +117,23 @@ cl() {
 }
 
 ai() {
-  if [ "$#" -eq 0 ]; then
-    printf '%s\n' "usage: ai <codex|claude|app|codex-app> [args...]" >&2
-    return 2
-  fi
+  local agent="claude"
+  case "$1" in
+    codex|claude|app|codex-app) agent="$1"; shift ;;
+  esac
 
-  local agent repo
-  agent="$1"
-  shift
+  local repo
   repo="$(_dotfiles_pick_repo)" || return
   cd "$repo" && _dotfiles_run_agent "$agent" "$@"
 }
 
 aip() {
-  if [ "$#" -eq 0 ]; then
-    printf '%s\n' "usage: aip <codex|claude|app|codex-app> [args...]" >&2
-    return 2
-  fi
+  local agent="claude"
+  case "$1" in
+    codex|claude|app|codex-app) agent="$1"; shift ;;
+  esac
 
-  local agent repo
-  agent="$1"
-  shift
+  local repo
   repo="$(_dotfiles_agent_inbox_repo)"
 
   if [ ! -d "$repo" ]; then
