@@ -1,5 +1,8 @@
 {
   "cleanupPeriodDays": 99999,
+  "env": {
+    "ANTHROPIC_MODEL": "claude-opus-4-6[1m]"
+  },
   "permissions": {
     "defaultMode": "auto"
   },
