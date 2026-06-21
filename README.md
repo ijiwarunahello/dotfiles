@@ -1,12 +1,13 @@
 # dotfiles
 
-macOS / Linux 向けの dotfiles。GNU Stow で `$HOME` に symlink を張って管理する。
+macOS / Linux / Windows 向けの dotfiles。Unix 系は GNU Stow、Windows はネイティブ PowerShell の `install.ps1` で `$HOME` に symlink を張って管理する。
 
 ## ディレクトリ構成
 
 | ディレクトリ | 説明 |
 | :-- | :-- |
-| `zsh/` | zsh 設定 (homebrew + starship + 最低限の UX) |
+| `zsh/` | zsh 設定 (macOS/Linux 用、homebrew + starship + 最低限の UX) |
+| `powershell/` | PowerShell 設定 (Windows 用、`zsh/.zsh/.zshrc` の移植・同じ alias / 関数 / tool init) |
 | `vim/` | vim 設定 (最小構成) |
 | `claude/` | Claude Code 設定 (`~/.claude/`) — global `CLAUDE.md` と skills も含む |
 | `codex/` | Codex 設定 (`~/.codex/`) — global `AGENTS.md` と Claude 由来 skills への導線 |
@@ -14,7 +15,7 @@ macOS / Linux 向けの dotfiles。GNU Stow で `$HOME` に symlink を張って
 | `workspace-inbox/` | agent inbox repository 用のローカル `AGENTS.md` |
 | `setup/` | ライブラリ / starship の bootstrap |
 
-## セットアップ
+## セットアップ (macOS / Linux)
 
 ```sh
 git clone git@github.com:ijiwarunahello/dotfiles.git ~/dotfiles
@@ -33,6 +34,40 @@ cd ~/dotfiles
 GitHub 認証と Git credential helper は GitHub CLI に任せる。
 
 ```sh
+gh auth login
+gh auth setup-git
+```
+
+## セットアップ (Windows / PowerShell 7)
+
+前提: symlink 作成には **開発者モード** を有効化する (設定 > プライバシーとセキュリティ > 開発者向け > 開発者モード)。または管理者権限の PowerShell で実行する。
+
+```powershell
+# symlink は repository の実パスに束縛されるため、最終置き場 (ghq root 配下) で実行する
+git config --global core.symlinks true   # vendored skill の symlink を実体として checkout する
+git config --global ghq.root "$HOME/Workspaces/src"
+ghq get ijiwarunahello/dotfiles
+cd "$HOME/Workspaces/src/github.com/ijiwarunahello/dotfiles"
+
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned   # スクリプト実行を許可
+./install.ps1
+```
+
+`install.ps1` は:
+
+1. `setup/install-libraries.ps1` で scoop と必要ツール (starship / zoxide / gh / fzf / ghq / git / vim) を導入
+2. `~/.agents/skills` を実ディレクトリとして用意
+3. stow 相当の symlink 展開で `claude` / `codex` / `workspace-inbox` / `agents` を `$HOME` 配下へ配置 (`agents` は削除済みリンクを掃除してから貼り直し)
+4. PowerShell プロファイル (`$PROFILE.CurrentUserAllHosts`) を `powershell/Microsoft.PowerShell_profile.ps1` へ symlink
+5. GitHub CLI / Worktrunk の次アクションを表示
+
+`$env:DRY_RUN = '1'` を設定して実行すると、ファイルを変更せず操作内容だけを表示する。
+マシン固有の設定は `powershell/profile.local.ps1.example` を `~/.config/powershell/profile.local.ps1` にコピーして編集する。
+worktrunk は scoop で導入されるが、Windows では CLI 名が `git-wt` になる (素の `wt` は Windows Terminal)。`gw` / `gwc` は `git-wt` を自動検出する。検出を上書きしたい場合は `$env:WORKTRUNK_BIN` を設定する。Windows ではプロファイルが起動時に shell integration を自動で有効化するため、`wt config shell install` は不要。
+
+GitHub 認証と Git credential helper は macOS / Linux と同じく GitHub CLI に任せる。
+
+```powershell
 gh auth login
 gh auth setup-git
 ```
@@ -77,3 +112,4 @@ wt config shell install
 
 - macOS (Apple Silicon / Intel)
 - Linux (Debian / Ubuntu 系)
+- Windows (ネイティブ PowerShell 7、開発者モード有効)

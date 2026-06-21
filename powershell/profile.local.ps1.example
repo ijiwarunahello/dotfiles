@@ -1,0 +1,13 @@
+# Machine-local PowerShell overrides (Windows equivalent of zsh/.zsh/.zshrc_Darwin).
+#
+# The main profile dot-sources this file if it exists at:
+#   $HOME\.config\powershell\profile.local.ps1
+#
+# It is NOT symlinked by install.ps1 — copy this example to that path and edit:
+#   New-Item -ItemType Directory -Force "$HOME\.config\powershell" | Out-Null
+#   Copy-Item .\powershell\profile.local.ps1.example "$HOME\.config\powershell\profile.local.ps1"
+#
+# Put machine-specific PATH tweaks, env vars, or tool paths here. Examples:
+#
+# $env:WORKSPACES_SRC = 'D:\work\src'
+# $env:PATH = "C:\tools\bin;$env:PATH"
