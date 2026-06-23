@@ -23,6 +23,17 @@ function Step-Remove {
   Remove-Item -LiteralPath $Path -Force -Recurse -ErrorAction SilentlyContinue
 }
 
+function Step-Backup {
+  param([Parameter(Mandatory)][string]$Path)
+  $bak = "$Path.bak"
+  if (Test-Path -LiteralPath $bak) {
+    $bak = "$Path.$(Get-Date -Format 'yyyyMMddHHmmss').bak"
+  }
+  if ($DryRun) { Write-Host "[dry-run] backup $Path -> $bak" -ForegroundColor Cyan; return }
+  Move-Item -LiteralPath $Path -Destination $bak -Force
+  Write-Host "backed up $Path -> $bak" -ForegroundColor Yellow
+}
+
 function Step-Symlink {
   param(
     [Parameter(Mandatory)][string]$Link,
@@ -33,8 +44,7 @@ function Step-Symlink {
     if ($existing.LinkType -eq 'SymbolicLink') {
       Step-Remove $Link
     } else {
-      Write-Host "skip (exists, not a symlink): $Link" -ForegroundColor Yellow
-      return
+      Step-Backup $Link
     }
   }
 
