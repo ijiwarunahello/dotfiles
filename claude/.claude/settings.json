@@ -17,8 +17,8 @@
     "skill-creator@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
     "everything-evenhub@everything-evenhub": true,
-    "artifact-hub@artifact-hub": true,
-    "clangd-lsp@claude-plugins-official": true
+    "clangd-lsp@claude-plugins-official": true,
+    "artifact-hub@artifact-hub": true
   },
   "extraKnownMarketplaces": {
     "memsearch-plugins": {
@@ -37,10 +37,24 @@
       "source": {
         "source": "github",
         "repo": "ijiwarunahello/artifact-hub"
-      }
+      },
+      "autoUpdate": true
     }
   },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/ghq-root-guard.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
-  "skipAutoPermissionPrompt": true,
-  "tui": "fullscreen"
+  "skipAutoPermissionPrompt": true
 }
