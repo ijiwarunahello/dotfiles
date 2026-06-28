@@ -40,5 +40,7 @@
       }
     }
   },
-  "skipAutoPermissionPrompt": true
+  "skipWorkflowUsageWarning": true,
+  "skipAutoPermissionPrompt": true,
+  "tui": "fullscreen"
 }
